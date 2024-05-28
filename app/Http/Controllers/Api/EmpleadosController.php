@@ -8,13 +8,23 @@ use Illuminate\Http\Request;
 
 class EmpleadosController extends Controller
 {
+    /**
+     * Retorna una colección de todos los empleados.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function index()
     {
         $empleados = Empleados::all();
         return $empleados;
     }
 
-
+    /**
+     * Almacena un nuevo empleado en la base de datos.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     public function store(Request $request)
     {
         $empleados = new Empleados();
@@ -29,14 +39,25 @@ class EmpleadosController extends Controller
         $empleados->save();
     }
 
-
+    /**
+     * Retorna el empleado con el ID especificado.
+     *
+     * @param  int  $id
+     * @return \App\Models\Empleados
+     */
     public function show($id)
     {
         $empleados = Empleados::find($id);
         return $empleados;
     }
 
-
+    /**
+     * Actualiza los datos del empleado especificado.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \App\Models\Empleados
+     */
     public function update(Request $request, $id)
     {
         $empleados = Empleados::findOrFail($request->id);
@@ -52,7 +73,12 @@ class EmpleadosController extends Controller
         return $empleados;
     }
 
-
+    /**
+     * Elimina el empleado con el ID especificado.
+     *
+     * @param  int  $id
+     * @return int
+     */
     public function destroy($id)
     {
         $empleados = Empleados::destroy($id);

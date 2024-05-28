@@ -7,8 +7,20 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Crea la tabla 'empleados' en la base de datos.
      *
+     * Esta función crea la tabla 'empleados' en la base de datos con los siguientes campos:
+     * - id: Identificador único del empleado.
+     * - nombre: Nombre del empleado.
+     * - apellido: Apellido del empleado.
+     * - razon_social: Razón social del empleado.
+     * - cedula: Número de cédula del empleado.
+     * - telefono: Número de teléfono del empleado.
+     * - pais: País de residencia del empleado.
+     * - ciudad: Ciudad de residencia del empleado.
+     * - timestamps: Campos de creación y actualización automática.
+     *
+     * @param  \Illuminate\Database\Schema\Blueprint  $table  Objeto de la tabla.
      * @return void
      */
     public function up()
